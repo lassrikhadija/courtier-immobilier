@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARPENT — Camille Daoust, courtière immobilière · Montréal &amp; Rive-Sud</title>
+<meta name="description" content="ARPENT — courtage immobilier résidentiel à Montréal et sur la Rive-Sud. Premier achat, vente, achat-vente simultané, plex et nouveaux arrivants. Évaluation gratuite et sans engagement. (Démo NEXTIWEB Studio)">
+<meta name="robots" content="noindex,follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="ARPENT — Courtage immobilier résidentiel · Montréal & Rive-Sud">
+<meta property="og:description" content="Un courtage clair, chiffré, sans pression. On part de votre situation réelle, pas d'un argumentaire de vente.">
+<meta property="og:type" content="website">
+
+<!-- JSON-LD : bonne pratique 2026 pour le SEO local immobilier -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"RealEstateAgent",
+  "name":"ARPENT — Camille Daoust, courtière immobilière",
+  "description":"Courtage immobilier résidentiel à Montréal et sur la Rive-Sud : premier achat, vente, achat-vente simultané, immeubles à revenus et accompagnement des nouveaux arrivants.",
+  "areaServed":["Montréal, QC","Longueuil, QC","Brossard, QC","Rive-Sud de Montréal"],
+  "telephone":"+1-514-555-0142",
+  "email":"camille@arpent-immobilier.ca",
+  "priceRange":"Commission standard du courtage immobilier au Québec",
+  "address":{"@type":"PostalAddress","streetAddress":"1250, rue Saint-Charles Ouest","addressLocality":"Longueuil","addressRegion":"QC","postalCode":"J4K 0B8","addressCountry":"CA"},
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"19:00"}],
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"143"}
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   ARPENT — Démo NEXTIWEB Studio
+   Concept : « console » de courtage — tableau de bord hi-tech 2026.
+   Palette : blanc cassé (os) · kaki profond · jaune beurre lumineux.
+   Type : Space Grotesk (display) · Inter (texte) · Space Mono (labels).
+   Volontairement DIFFÉRENT des autres démos (pas d'éditorial serif).
+   ============================================================ */
+
+:root{
+  /* Neutres — blanc cassé / os */
+  --bone:      #F2EFE5;
+  --bone-2:    #E8E3D3;
+  --bone-3:    #DCD6C2;
+  --paper:     #FBF9F2;
+
+  /* Encre — kaki militaire très profond (olive drab foncé) */
+  --ink:       #1E2113;
+  --ink-2:     #2C3019;
+  --muted:     #6C6D55;
+  --muted-2:   #8B8C70;
+  --line:      #D4D0BA;
+  --line-soft: #E3DEC9;
+
+  /* Signature — kaki militaire (olive drab) */
+  --khaki:        #5C5E39;
+  --khaki-deep:   #42461F;
+  --khaki-soft:   #ACAD86;
+  --khaki-tint:   #E2E2C8;
+
+  /* Accent — jaune pastel */
+  --butter:      #EFE6A2;
+  --butter-2:    #F6F0C6;
+  --butter-deep: #8E8430;
+  --butter-glow: rgba(239,230,162,.55);
+
+  --radius:    20px;
+  --radius-sm: 13px;
+  --radius-lg: 30px;
+
+  --shadow-sm: 0 2px 10px rgba(35,35,15,.07);
+  --shadow-md: 0 20px 50px -22px rgba(35,35,15,.30);
+  --shadow-lg: 0 50px 110px -50px rgba(35,35,15,.55);
+
+  --maxw: 1220px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono:    "Space Mono", ui-monospace, "Cascadia Code", monospace;
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } *{ animation:none!important; transition:none!important; } }
+
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--bone);
+  line-height:1.62;
+  font-size:clamp(15px,.55vw + 13px,17px);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+::selection{ background:var(--butter); color:var(--ink); }
+
+.wrap{ width:min(92%,var(--maxw)); margin-inline:auto; }
+
+.mono{
+  font-family:var(--font-mono); font-size:.74rem; letter-spacing:.04em;
+  text-transform:uppercase; color:var(--khaki-deep);
+}
+.eyebrow{
+  font-family:var(--font-mono); font-size:.74rem; letter-spacing:.16em;
+  text-transform:uppercase; font-weight:700; color:var(--khaki-deep);
+  display:inline-flex; align-items:center; gap:.65em;
+}
+.eyebrow::before{ content:"//"; color:var(--butter-deep); letter-spacing:-.05em; }
+
+h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; line-height:1.04; letter-spacing:-.02em; color:var(--ink); }
+h2{ font-size:clamp(1.9rem,3.6vw,3rem); }
+h3{ font-size:1.28rem; letter-spacing:-.01em; }
+
+.lead{ font-size:clamp(1.02rem,1.4vw,1.22rem); color:var(--ink-2); }
+.dim{ color:var(--muted); }
+.hl{ color:var(--butter-deep); }
+
+/* ---------- Reveal (fail-open) ---------- */
+.js .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease),transform .8s var(--ease); }
+.js .reveal.in{ opacity:1; transform:none; }
+.js .reveal[data-d="1"]{ transition-delay:.07s }
+.js .reveal[data-d="2"]{ transition-delay:.14s }
+.js .reveal[data-d="3"]{ transition-delay:.21s }
+.js .reveal[data-d="4"]{ transition-delay:.28s }
+.js .reveal[data-d="5"]{ transition-delay:.35s }
+
+/* ===================== BUTTONS ===================== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.55em;
+  font-family:var(--font-display); font-weight:600; font-size:.96rem;
+  padding:.92em 1.5em; border-radius:999px; cursor:pointer;
+  border:1.5px solid transparent; background:var(--butter); color:var(--ink);
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+  box-shadow:0 8px 24px -10px var(--butter-glow);
+  white-space:nowrap;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 14px 34px -10px var(--butter-glow); background:var(--butter-2); }
+.btn--dark{ background:var(--ink); color:var(--bone); box-shadow:var(--shadow-sm); }
+.btn--dark:hover{ background:var(--ink-2); }
+.btn--ghost{ background:transparent; border-color:var(--line); color:var(--ink); box-shadow:none; }
+.btn--ghost:hover{ border-color:var(--ink); background:transparent; }
+.btn--lg{ padding:1.05em 1.9em; font-size:1.02rem; }
+.btn .arr{ transition:transform .25s var(--ease); }
+.btn:hover .arr{ transform:translateX(4px); }
+
+/* ===================== HEADER ===================== */
+.site-header{
+  position:sticky; top:0; z-index:60;
+  background:rgba(242,239,229,.78);
+  border-bottom:1px solid transparent;
+  transition:background .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+@supports (backdrop-filter:blur(8px)){ .site-header{ backdrop-filter:blur(14px); } }
+.site-header.scrolled{ border-color:var(--line-soft); box-shadow:0 1px 0 rgba(35,35,15,.03); }
+.nav{ display:flex; align-items:center; justify-content:space-between; height:70px; gap:1.5rem; }
+.brand{ display:flex; align-items:center; gap:.6rem; font-family:var(--font-display); font-weight:700; font-size:1.18rem; letter-spacing:.02em; }
+.brand__mark{
+  width:34px; height:34px; border-radius:9px; flex:none;
+  background:var(--ink); color:var(--butter); display:grid; place-items:center;
+  font-family:var(--font-mono); font-weight:700; font-size:.95rem;
+  box-shadow:inset 0 0 0 1px rgba(239,230,162,.25);
+}
+.brand small{ display:block; font-family:var(--font-mono); font-weight:400; font-size:.6rem; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; margin-top:1px; }
+.nav__links{ display:flex; align-items:center; gap:1.6rem; }
+.nav__links a{ font-size:.92rem; font-weight:500; color:var(--ink-2); transition:color .2s; }
+.nav__links a:hover{ color:var(--khaki-deep); }
+.nav__cta{ display:flex; align-items:center; gap:.8rem; }
+.nav__lang{ font-family:var(--font-mono); font-size:.78rem; font-weight:700; border:1px solid var(--line); border-radius:9px; padding:.42em .6em; color:var(--ink); transition:border-color .2s, background .2s; }
+.nav__lang:hover{ border-color:var(--ink); background:var(--bone-2); }
+.nav__phone{ font-family:var(--font-mono); font-size:.84rem; font-weight:700; color:var(--ink); }
+.burger{ display:none; width:44px; height:44px; border:1px solid var(--line); border-radius:11px; background:var(--paper); cursor:pointer; flex-direction:column; gap:5px; align-items:center; justify-content:center; }
+.burger span{ width:18px; height:2px; background:var(--ink); border-radius:2px; transition:.3s; }
+
+@media (max-width:940px){
+  .nav__links{
+    position:fixed; inset:70px 0 auto 0; flex-direction:column; gap:.2rem;
+    background:var(--paper); border-bottom:1px solid var(--line);
+    padding:1rem 6%; transform:translateY(-130%); transition:transform .4s var(--ease);
+    box-shadow:var(--shadow-md); align-items:stretch;
+  }
+  .nav__links.open{ transform:none; }
+  .nav__links a{ padding:.85rem 0; border-bottom:1px solid var(--line-soft); font-size:1.02rem; }
+  .nav__phone{ display:none; }
+  .burger{ display:flex; }
+}
+
+/* ===================== HERO ===================== */
+.hero{ position:relative; padding:clamp(3rem,7vw,5.5rem) 0 clamp(3rem,6vw,4.5rem); overflow:hidden; }
+.hero__grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(2rem,4vw,3.5rem); align-items:center; }
+.hero__tag{ margin-bottom:1.4rem; }
+.hero h1{ font-size:clamp(2.4rem,5.6vw,4.3rem); margin-bottom:1.3rem; color:#3A3D22; }
+.hero h1 em{ font-style:normal; position:relative; white-space:nowrap; }
+.hero h1 em::after{
+  content:""; position:absolute; left:-.04em; right:-.04em; bottom:.06em; height:.36em; z-index:-1;
+  background:linear-gradient(90deg,var(--butter) 0%,var(--butter-2) 100%); border-radius:3px;
+  transform:rotate(-.6deg);
+}
+.hero__lead{ max-width:34ch; margin-bottom:2rem; }
+.hero__actions{ display:flex; flex-wrap:wrap; gap:.8rem; margin-bottom:2rem; }
+.hero__assure{ display:flex; flex-wrap:wrap; gap:1.4rem; font-size:.85rem; color:var(--muted); }
+.hero__assure span{ display:inline-flex; align-items:center; gap:.45em; }
+.hero__assure svg{ flex:none; }
+
+/* — Carte « dossier » à droite (mock tableau de bord) — */
+.dossier{
+  background:var(--ink); color:var(--bone); border-radius:var(--radius-lg);
+  padding:1.5rem 1.5rem 1.7rem; box-shadow:var(--shadow-lg);
+  position:relative; overflow:hidden;
+}
+.dossier::before{
+  content:""; position:absolute; inset:0; opacity:.5; pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(239,230,162,.16), transparent 55%),
+    linear-gradient(transparent 95%, rgba(239,230,162,.06) 95%) 0 0/100% 26px,
+    linear-gradient(90deg, transparent 95%, rgba(239,230,162,.06) 95%) 0 0/26px 100%;
+}
+.dossier > *{ position:relative; }
+.dossier__top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:1.1rem; }
+.dossier__top .mono{ color:var(--khaki-soft); }
+.dossier__live{ display:inline-flex; align-items:center; gap:.45em; font-family:var(--font-mono); font-size:.66rem; letter-spacing:.12em; color:var(--butter-2); text-transform:uppercase; }
+.dossier__live .blip{ width:7px; height:7px; border-radius:50%; background:var(--butter); box-shadow:0 0 0 0 var(--butter-glow); animation:blip 2s var(--ease) infinite; }
+@keyframes blip{ 0%{ box-shadow:0 0 0 0 var(--butter-glow);} 70%{ box-shadow:0 0 0 9px rgba(239,230,162,0);} 100%{ box-shadow:0 0 0 0 rgba(239,230,162,0);} }
+
+.dossier h3{ color:var(--bone); font-size:1.18rem; margin-bottom:.15rem; }
+.dossier__sub{ font-family:var(--font-mono); font-size:.7rem; color:var(--khaki-soft); margin-bottom:1rem; }
+
+/* — Plan d'architecte (maison) dans le dossier — */
+.blueprint{ position:relative; margin:.2rem 0 1.1rem; padding:.9rem 1rem .5rem; border:1px solid rgba(239,230,162,.16); border-radius:14px; background:rgba(255,255,255,.03); }
+.blueprint svg{ width:100%; height:auto; display:block; }
+.bp-line{ fill:none; stroke:var(--butter-2); stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+.bp-faint{ fill:none; stroke:var(--khaki-soft); stroke-width:1; opacity:.55; }
+.bp-dash{ fill:none; stroke:var(--khaki-soft); stroke-width:1; opacity:.5; stroke-dasharray:4 4; }
+.bp-fill{ fill:rgba(239,230,162,.07); stroke:none; }
+.bp-txt{ fill:var(--khaki-soft); font-family:var(--font-mono); font-size:7px; letter-spacing:.5px; }
+.bp-tag{ position:absolute; top:.55rem; right:.6rem; font-family:var(--font-mono); font-size:.56rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); background:var(--butter); padding:.28em .65em; border-radius:999px; box-shadow:0 4px 14px -6px var(--butter-glow); }
+.bp-tag::before{ content:""; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--khaki-deep); margin-right:.45em; vertical-align:middle; }
+@media (prefers-reduced-motion:no-preference){
+  .js .bp-line{ stroke-dasharray:760; stroke-dashoffset:0; animation:bpDraw 1.8s var(--ease) .25s both; }
+  @keyframes bpDraw{ from{ stroke-dashoffset:760; } to{ stroke-dashoffset:0; } }
+}
+.meter{ margin:1rem 0 1.3rem; }
+.meter__row{ display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:.7rem; color:var(--khaki-soft); margin-bottom:.4rem; }
+.meter__bar{ height:8px; border-radius:99px; background:rgba(255,255,255,.09); overflow:hidden; }
+.meter__fill{ height:100%; border-radius:99px; background:linear-gradient(90deg,var(--khaki-soft),var(--butter)); width:0; transition:width 1.4s var(--ease); }
+.dchips{ display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+.dchip{ background:rgba(255,255,255,.05); border:1px solid rgba(239,230,162,.14); border-radius:13px; padding:.75rem .8rem; }
+.dchip b{ display:block; font-family:var(--font-display); font-size:1.45rem; color:var(--butter-2); line-height:1; }
+.dchip span{ font-family:var(--font-mono); font-size:.62rem; letter-spacing:.06em; color:var(--khaki-soft); text-transform:uppercase; }
+
+@media (max-width:880px){
+  .hero__grid{ grid-template-columns:1fr; }
+  .hero__lead{ max-width:48ch; }
+  .dossier{ max-width:440px; }
+}
+
+/* ===================== BANDE LOGOS / CONFIANCE ===================== */
+.trust{ border-block:1px solid var(--line-soft); background:var(--paper); }
+.trust__row{ display:flex; flex-wrap:wrap; gap:1rem 2.6rem; align-items:center; justify-content:center; padding:1.1rem 0; }
+.trust__item{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); display:inline-flex; align-items:center; gap:.5em; }
+.trust__item b{ color:var(--ink); font-size:.9rem; letter-spacing:0; }
+
+/* ===================== SECTIONS GÉNÉRIQUES ===================== */
+.section{ padding:clamp(3.5rem,7vw,6rem) 0; }
+.section__head{ max-width:60ch; margin-bottom:2.6rem; }
+.section__head h2{ margin:.6rem 0 .8rem; }
+
+/* ===================== CONSOLE PERSONAS (pièce maîtresse) ===================== */
+.console{ background:var(--ink); color:var(--bone); position:relative; overflow:hidden; }
+.console::before{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.6;
+  background:
+    radial-gradient(70% 50% at 80% -10%, rgba(239,230,162,.14), transparent 60%),
+    linear-gradient(90deg, transparent 96%, rgba(255,255,255,.04) 96%) 0 0/40px 100%,
+    linear-gradient(transparent 96%, rgba(255,255,255,.04) 96%) 0 0/100% 40px;
+}
+.console .wrap{ position:relative; }
+.console h2,.console h3{ color:var(--bone); }
+.console .eyebrow{ color:var(--butter-2); }
+.console .eyebrow::before{ color:var(--butter); }
+.console__lead{ color:var(--khaki-soft); max-width:56ch; }
+
+.persona{ display:grid; grid-template-columns:300px 1fr; gap:clamp(1.4rem,3vw,2.6rem); margin-top:2.8rem; align-items:start; }
+
+/* Onglets persona (gauche) */
+.persona__tabs{ display:flex; flex-direction:column; gap:.55rem; }
+.ptab{
+  text-align:left; width:100%; cursor:pointer; color:var(--bone);
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+  border-radius:15px; padding:.95rem 1.05rem; display:flex; gap:.85rem; align-items:center;
+  transition:border-color .25s var(--ease), background .25s var(--ease), transform .2s var(--ease);
+  font-family:inherit;
+}
+.ptab:hover{ border-color:rgba(239,230,162,.4); transform:translateX(3px); }
+.ptab.is-active{ background:rgba(239,230,162,.1); border-color:var(--butter); }
+.ptab__no{ font-family:var(--font-mono); font-size:.7rem; color:var(--khaki-soft); flex:none; }
+.ptab.is-active .ptab__no{ color:var(--butter-2); }
+.ptab__t{ font-family:var(--font-display); font-weight:600; font-size:.98rem; line-height:1.2; }
+.ptab__s{ display:block; font-family:var(--font-mono); font-size:.64rem; color:var(--khaki-soft); margin-top:2px; letter-spacing:.03em; }
+
+/* Panneau persona (droite) */
+.ppanel{
+  background:rgba(255,255,255,.04); border:1px solid rgba(239,230,162,.16);
+  border-radius:var(--radius); padding:clamp(1.4rem,3vw,2.1rem); min-height:380px;
+}
+.ppane{ display:none; }
+.ppane.is-active{ display:block; animation:fadeup .5s var(--ease); }
+@keyframes fadeup{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:none;} }
+.ppane__head{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:.6rem; margin-bottom:.4rem; }
+.ppane__quote{ font-family:var(--font-display); font-size:clamp(1.25rem,2.3vw,1.7rem); color:var(--bone); line-height:1.18; margin-bottom:1.5rem; }
+.ppane__quote .q{ color:var(--butter); }
+.pp-cols{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem 2rem; }
+.pp-cols h4{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; margin-bottom:.9rem; }
+.pp-pain h4{ color:#E6A98C; }
+.pp-fix h4{ color:var(--butter-2); }
+.pp-list{ list-style:none; display:flex; flex-direction:column; gap:.7rem; }
+.pp-list li{ font-size:.92rem; line-height:1.45; color:var(--bone); display:flex; gap:.6rem; }
+.pp-list li::before{ flex:none; margin-top:.05em; font-family:var(--font-mono); font-size:.85rem; }
+.pp-pain li{ color:#E9D9CF; }
+.pp-pain li::before{ content:"✕"; color:#D98C68; }
+.pp-fix li::before{ content:"→"; color:var(--butter); }
+.ppane__foot{ margin-top:1.6rem; padding-top:1.3rem; border-top:1px solid rgba(255,255,255,.1); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
+.ppane__metric{ font-family:var(--font-mono); font-size:.7rem; color:var(--khaki-soft); }
+.ppane__metric b{ color:var(--butter-2); font-size:1.4rem; font-family:var(--font-display); display:block; }
+
+@media (max-width:820px){
+  .persona{ grid-template-columns:1fr; }
+  .persona__tabs{ flex-direction:row; overflow-x:auto; padding-bottom:.4rem; gap:.5rem; scrollbar-width:thin; }
+  .ptab{ flex:0 0 auto; width:auto; }
+  .ptab__s{ display:none; }
+  .pp-cols{ grid-template-columns:1fr; }
+}
+
+/* ===================== PROCESSUS ===================== */
+.steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; counter-reset:s; }
+.step{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+  padding:1.5rem 1.3rem 1.4rem; position:relative; transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+}
+.step:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--khaki-soft); }
+.step__no{ counter-increment:s; font-family:var(--font-mono); font-weight:700; font-size:.8rem; color:var(--butter-deep); margin-bottom:1.6rem; display:flex; align-items:center; gap:.6em; }
+.step__no::before{ content:"0" counter(s); }
+.step__no::after{ content:""; flex:1; height:1px; background:var(--line); }
+.step h3{ font-size:1.08rem; margin-bottom:.5rem; }
+.step p{ font-size:.9rem; color:var(--muted); }
+@media (max-width:880px){ .steps{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .steps{ grid-template-columns:1fr; } }
+
+/* ===================== SERVICES (grid bento) ===================== */
+.bento{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.card{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+  padding:1.6rem 1.5rem; transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+}
+.card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--khaki-soft); }
+.card__ic{ width:46px; height:46px; border-radius:12px; background:var(--khaki-tint); color:var(--khaki-deep); display:grid; place-items:center; margin-bottom:1.1rem; }
+.card h3{ font-size:1.12rem; margin-bottom:.5rem; }
+.card p{ font-size:.92rem; color:var(--muted); }
+.card--wide{ grid-column:span 2; background:var(--ink); color:var(--bone); border-color:transparent; display:flex; flex-direction:column; justify-content:space-between; }
+.card--wide h3{ color:var(--bone); font-size:1.4rem; }
+.card--wide p{ color:var(--khaki-soft); }
+.card--wide .card__ic{ background:rgba(239,230,162,.14); color:var(--butter-2); }
+@media (max-width:880px){ .bento{ grid-template-columns:1fr 1fr; } .card--wide{ grid-column:span 2; } }
+@media (max-width:560px){ .bento{ grid-template-columns:1fr; } .card--wide{ grid-column:span 1; } }
+
+/* ===================== STATS ===================== */
+.stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+.stat{ background:var(--paper); padding:1.8rem 1.4rem; text-align:center; }
+.stat b{ font-family:var(--font-display); font-weight:700; font-size:clamp(2rem,4vw,2.8rem); color:var(--khaki-deep); line-height:1; display:block; }
+.stat span{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-top:.5rem; display:block; }
+@media (max-width:680px){ .stats{ grid-template-columns:1fr 1fr; } }
+
+/* ===================== TÉMOIGNAGES ===================== */
+.quotes{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.quote{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:1.7rem 1.5rem; display:flex; flex-direction:column; }
+.quote__stars{ color:var(--butter-deep); letter-spacing:.15em; font-size:.85rem; margin-bottom:.9rem; }
+.quote p{ font-size:.95rem; color:var(--ink-2); margin-bottom:1.2rem; }
+.quote__who{ margin-top:auto; display:flex; align-items:center; gap:.75rem; }
+.quote__av{ width:42px; height:42px; border-radius:50%; background:var(--khaki-deep); color:var(--butter-2); display:grid; place-items:center; font-family:var(--font-display); font-weight:700; font-size:.92rem; letter-spacing:.02em; flex:none; }
+.quote__who b{ font-size:.9rem; display:block; color:var(--ink); }
+.quote__who span span{ font-family:var(--font-mono); font-size:.66rem; color:var(--muted); }
+@media (max-width:880px){ .quotes{ grid-template-columns:1fr; } }
+
+/* ===================== CTA / ÉVALUATION ===================== */
+.evalsec{ background:var(--bone-2); }
+.evalbox{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(1.5rem,3vw,3rem); background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); }
+.evalbox__l{ padding:clamp(1.8rem,3.5vw,3rem); }
+.evalbox__l h2{ font-size:clamp(1.8rem,3.2vw,2.6rem); margin:.6rem 0 1rem; }
+.evalbox ul{ list-style:none; margin:1.4rem 0 0; display:flex; flex-direction:column; gap:.75rem; }
+.evalbox ul li{ display:flex; gap:.65rem; font-size:.94rem; color:var(--ink-2); }
+.evalbox ul li svg{ flex:none; margin-top:.15em; color:var(--khaki-deep); }
+.evalbox__r{ background:var(--ink); padding:clamp(1.8rem,3.5vw,2.6rem); color:var(--bone); }
+.evalbox__r .mono{ color:var(--khaki-soft); }
+.field{ margin-bottom:.9rem; }
+.field label{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; color:var(--khaki-soft); display:block; margin-bottom:.4rem; }
+.field input,.field select{
+  width:100%; padding:.8rem .9rem; border-radius:11px; border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05); color:var(--bone); font-family:inherit; font-size:.95rem;
+}
+.field input::placeholder{ color:rgba(255,255,255,.35); }
+.field input:focus,.field select:focus{ outline:none; border-color:var(--butter); box-shadow:0 0 0 3px rgba(239,230,162,.18); }
+.field select option{ color:#222; }
+.evalbox__r .btn{ width:100%; margin-top:.4rem; }
+.evalbox__r .fineprint{ font-size:.72rem; color:var(--muted-2); margin-top:.9rem; line-height:1.5; }
+.hp{ position:absolute; left:-9999px; opacity:0; height:0; width:0; }
+@media (max-width:820px){ .evalbox{ grid-template-columns:1fr; } }
+
+/* ===================== FAQ ===================== */
+.faq{ max-width:780px; margin-inline:auto; }
+.faq__item{ border-bottom:1px solid var(--line); }
+.faq__btn{ width:100%; text-align:left; background:none; border:0; cursor:pointer; padding:1.15rem 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; font-family:var(--font-display); font-weight:600; font-size:1.04rem; color:var(--ink); }
+.faq__btn .ic{ flex:none; width:26px; height:26px; border-radius:8px; border:1px solid var(--line); display:grid; place-items:center; transition:.3s var(--ease); color:var(--khaki-deep); font-size:1.1rem; }
+.faq__item.open .faq__btn .ic{ background:var(--butter); border-color:var(--butter); transform:rotate(45deg); }
+.faq__a{ max-height:0; overflow:hidden; transition:max-height .4s var(--ease); }
+.faq__a p{ padding:0 0 1.2rem; color:var(--muted); font-size:.95rem; max-width:64ch; }
+
+/* ===================== FOOTER ===================== */
+.foot{ background:var(--ink); color:var(--bone); padding:clamp(3rem,5vw,4.5rem) 0 2rem; }
+.foot__grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:2rem; padding-bottom:2.5rem; border-bottom:1px solid rgba(255,255,255,.1); }
+.foot .brand{ color:var(--bone); margin-bottom:1rem; }
+.foot p{ color:var(--khaki-soft); font-size:.9rem; max-width:34ch; }
+.foot h4{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--butter-2); margin-bottom:1rem; }
+.foot__col a, .foot__col span{ display:block; color:var(--khaki-soft); font-size:.9rem; padding:.3rem 0; transition:color .2s; }
+.foot__col a:hover{ color:var(--butter-2); }
+.foot__bottom{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; align-items:center; padding-top:1.6rem; font-family:var(--font-mono); font-size:.72rem; color:var(--muted-2); }
+@media (max-width:820px){ .foot__grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:480px){ .foot__grid{ grid-template-columns:1fr; } }
+
+/* ===================== CURSOR GLOW ===================== */
+.cursor-glow{ position:fixed; top:0; left:0; width:480px; height:480px; border-radius:50%; pointer-events:none; z-index:1; opacity:0; transition:opacity .4s; mix-blend-mode:multiply;
+  background:radial-gradient(circle, rgba(239,230,162,.22), transparent 65%); }
+.cursor-glow.on{ opacity:1; }
+
+/* ===================== LOI 25 + RUBAN DÉMO ===================== */
+.cookie{ position:fixed; left:1rem; right:1rem; bottom:1rem; max-width:430px; margin-inline:auto; z-index:90;
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:1.3rem 1.4rem; box-shadow:var(--shadow-lg);
+  transform:translateY(160%); transition:transform .5s var(--ease); }
+.cookie.show{ transform:none; }
+.cookie b{ font-family:var(--font-display); font-size:1.02rem; }
+.cookie p{ font-size:.84rem; color:var(--muted); margin:.5rem 0 1rem; }
+.cookie a{ color:var(--khaki-deep); text-decoration:underline; }
+.cookie__btns{ display:flex; gap:.6rem; }
+.cookie__btns .btn{ flex:1; padding:.7em 1em; font-size:.85rem; }
+
+.demo-ribbon{ position:fixed; bottom:1rem; left:1rem; z-index:80; display:inline-flex; align-items:center; gap:.5em;
+  background:var(--ink); color:var(--bone); font-family:var(--font-mono); font-size:.68rem; letter-spacing:.04em;
+  padding:.5em .9em; border-radius:999px; box-shadow:var(--shadow-md); }
+.demo-ribbon b{ color:var(--butter-2); }
+.demo-ribbon .dot{ width:7px; height:7px; border-radius:50%; background:var(--butter); }
+@media (max-width:520px){ .demo-ribbon{ font-size:.6rem; } }
+
+/* skip link */
+.skip-link{ position:absolute; left:-999px; top:0; z-index:100; background:var(--ink); color:var(--bone); padding:.7em 1.1em; border-radius:0 0 10px 0; }
+.skip-link:focus{ left:0; }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Aller au contenu</a>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap nav">
+    <a href="#" class="brand" aria-label="ARPENT — accueil">
+      <span class="brand__mark">A</span>
+      <span>ARPENT<small>Courtage immobilier</small></span>
+    </a>
+    <nav class="nav__links" id="menu" aria-label="Navigation principale">
+      <a href="#personas">Pour qui</a>
+      <a href="#processus">Démarche</a>
+      <a href="#services">Services</a>
+      <a href="#avis">Avis</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav__cta">
+      <a href="en/index.html" class="nav__lang" aria-label="English version">EN</a>
+      <a href="tel:+15145550142" class="nav__phone">514&nbsp;555-0142</a>
+      <a href="#eval" class="btn">Évaluation gratuite</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <div class="hero__tag eyebrow reveal">Montréal &amp; Rive-Sud · résidentiel</div>
+      <h1 class="reveal" data-d="1">Acheter ou vendre <em>sans naviguer à l'aveugle</em>.</h1>
+      <p class="lead hero__lead reveal" data-d="2">Je pars de votre situation réelle — budget, échéancier, peurs — et je vous donne des chiffres clairs, pas un argumentaire de vente.</p>
+      <div class="hero__actions reveal" data-d="3">
+        <a href="#eval" class="btn btn--lg">Obtenir mon évaluation gratuite <span class="arr">→</span></a>
+        <a href="#personas" class="btn btn--ghost btn--lg">Je me reconnais dans…</a>
+      </div>
+      <div class="hero__assure reveal" data-d="4">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg> Sans engagement</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg> Réponse sous 24&nbsp;h</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg> Service bilingue</span>
+      </div>
+    </div>
+
+    <!-- Mock « dossier client » -->
+    <aside class="dossier reveal" data-d="2" aria-label="Aperçu d'un dossier de vente (illustration)">
+      <div class="dossier__top">
+        <span class="mono">DOSSIER · #2026-MTL</span>
+        <span class="dossier__live"><span class="blip"></span> Suivi en direct</span>
+      </div>
+
+      <div class="blueprint" aria-hidden="true">
+        <span class="bp-tag">À vendre</span>
+        <svg viewBox="0 0 320 158" role="img" aria-label="Plan d'une maison">
+          <!-- sol -->
+          <line class="bp-dash" x1="10" y1="138" x2="310" y2="138"/>
+          <!-- corps + toit (remplissage léger) -->
+          <polygon class="bp-fill" points="62,78 153,32 244,78 244,138 62,138"/>
+          <!-- corps -->
+          <rect class="bp-line" x="78" y="78" width="150" height="60"/>
+          <!-- toit -->
+          <polyline class="bp-line" points="62,80 153,32 244,80"/>
+          <!-- cheminée -->
+          <polyline class="bp-line" points="200,52 200,40 214,40 214,60"/>
+          <!-- porte -->
+          <rect class="bp-line" x="142" y="104" width="26" height="34"/>
+          <line class="bp-faint" x1="162" y1="120" x2="164" y2="120"/>
+          <!-- fenêtre gauche -->
+          <rect class="bp-line" x="96" y="92" width="30" height="26"/>
+          <line class="bp-faint" x1="111" y1="92" x2="111" y2="118"/>
+          <line class="bp-faint" x1="96" y1="105" x2="126" y2="105"/>
+          <!-- fenêtre droite -->
+          <rect class="bp-line" x="180" y="92" width="30" height="26"/>
+          <line class="bp-faint" x1="195" y1="92" x2="195" y2="118"/>
+          <line class="bp-faint" x1="180" y1="105" x2="210" y2="105"/>
+          <!-- cote de façade -->
+          <line class="bp-dash" x1="78" y1="150" x2="228" y2="150"/>
+          <line class="bp-dash" x1="78" y1="146" x2="78" y2="154"/>
+          <line class="bp-dash" x1="228" y1="146" x2="228" y2="154"/>
+          <!-- pancarte à vendre -->
+          <rect class="bp-line" x="262" y="98" width="34" height="20"/>
+          <line class="bp-faint" x1="268" y1="105" x2="290" y2="105"/>
+          <line class="bp-faint" x1="268" y1="111" x2="284" y2="111"/>
+          <line class="bp-line" x1="279" y1="118" x2="279" y2="138"/>
+          <text class="bp-txt" x="153" y="14" text-anchor="middle">PLAN · FAÇADE</text>
+        </svg>
+      </div>
+
+      <h3>Maison 2 étages · 4 chambres · Brossard</h3>
+      <div class="dossier__sub">Profil&nbsp;: propriétaire-vendeur · objectif meilleur prix</div>
+
+      <div class="meter">
+        <div class="meter__row"><span>Mise en marché</span><span>92%</span></div>
+        <div class="meter__bar"><div class="meter__fill" data-fill="92"></div></div>
+      </div>
+
+      <div class="dchips">
+        <div class="dchip"><b>11 j</b><span>Avant la 1re offre</span></div>
+        <div class="dchip"><b>5</b><span>Visites organisées</span></div>
+        <div class="dchip"><b>3</b><span>Comparables analysés</span></div>
+        <div class="dchip"><b>0$</b><span>Frais d'évaluation</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ BANDE CONFIANCE ============ -->
+<div class="trust">
+  <div class="wrap trust__row">
+    <span class="trust__item">Membre <b>OACIQ</b></span>
+    <span class="trust__item"><b>Centris</b> · inscription MLS</span>
+    <span class="trust__item">Réseau <b>courtiers hypothécaires</b></span>
+    <span class="trust__item">Photo · vidéo · <b>visite 3D</b></span>
+    <span class="trust__item"><b>4,9/5</b> · 143 avis</span>
+  </div>
+</div>
+
+<!-- ============ CONSOLE PERSONAS (PIÈCE MAÎTRESSE) ============ -->
+<section class="section console" id="personas">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Le bon plan dépend de qui vous êtes</span>
+      <h2>Cinq situations. Cinq stratégies.<br>Choisissez la vôtre.</h2>
+      <p class="console__lead">La majorité des sites de courtiers parlent d'eux. Ici, on part de <b>votre</b> blocage. Cliquez sur le profil qui vous ressemble&nbsp;: à droite, les douleurs qu'on entend le plus — et ce qu'on fait concrètement pour chacune.</p>
+    </div>
+
+    <div class="persona reveal" data-d="1">
+      <!-- Onglets -->
+      <div class="persona__tabs" role="tablist" aria-label="Profils de clients">
+        <button class="ptab is-active" role="tab" aria-selected="true" data-p="0">
+          <span class="ptab__no">01</span>
+          <span><span class="ptab__t">Premier achat</span><span class="ptab__s">Je n'y connais rien</span></span>
+        </button>
+        <button class="ptab" role="tab" aria-selected="false" data-p="1">
+          <span class="ptab__no">02</span>
+          <span><span class="ptab__t">Je vends ma maison</span><span class="ptab__s">Au juste prix</span></span>
+        </button>
+        <button class="ptab" role="tab" aria-selected="false" data-p="2">
+          <span class="ptab__no">03</span>
+          <span><span class="ptab__t">Vendre + racheter</span><span class="ptab__s">En même temps</span></span>
+        </button>
+        <button class="ptab" role="tab" aria-selected="false" data-p="3">
+          <span class="ptab__no">04</span>
+          <span><span class="ptab__t">Investisseur / plex</span><span class="ptab__s">Le rendement d'abord</span></span>
+        </button>
+        <button class="ptab" role="tab" aria-selected="false" data-p="4">
+          <span class="ptab__no">05</span>
+          <span><span class="ptab__t">Nouvel arrivant</span><span class="ptab__s">Nouveau au Québec</span></span>
+        </button>
+      </div>
+
+      <!-- Panneaux -->
+      <div class="ppanel">
+        <!-- 0 — Premier achat -->
+        <div class="ppane is-active" role="tabpanel">
+          <p class="ppane__quote">« J'ai peur de <span class="q">faire la plus grosse erreur</span> de ma vie sans même m'en rendre compte. »</p>
+          <div class="pp-cols">
+            <div class="pp-pain">
+              <h4>Ce qui vous bloque</h4>
+              <ul class="pp-list">
+                <li>Le jargon hypothécaire : taux, mise de fonds, SCHL… personne ne vous l'explique simplement.</li>
+                <li>La peur de payer trop cher ou de tomber sur des vices cachés.</li>
+                <li>Les surenchères : vous perdez 3 offres et vous vous découragez.</li>
+              </ul>
+            </div>
+            <div class="pp-fix">
+              <h4>Ce que je fais</h4>
+              <ul class="pp-list">
+                <li>On part de votre vrai budget : je vous branche au bon courtier hypothécaire avant de visiter.</li>
+                <li>Analyse des comparables vendus — vous savez si le prix tient la route.</li>
+                <li>Stratégie d'offre claire, inspection incluse au plan, zéro pression.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="ppane__foot">
+            <span class="ppane__metric"><b>0$</b> pour démarrer — l'accompagnement acheteur est gratuit pour vous</span>
+            <a href="#eval" class="btn">Lancer mon dossier <span class="arr">→</span></a>
+          </div>
+        </div>
+
+        <!-- 1 — Vendeur -->
+        <div class="ppane" role="tabpanel" hidden>
+          <p class="ppane__quote">« Comment savoir si on me propose le <span class="q">vrai prix</span> — et pas juste celui qui décroche le contrat ? »</p>
+          <div class="pp-cols">
+            <div class="pp-pain">
+              <h4>Ce qui vous bloque</h4>
+              <ul class="pp-list">
+                <li>La crainte de sous-évaluer (laisser de l'argent) ou de sur-évaluer (rester sur le marché).</li>
+                <li>Des agents qui gonflent le prix pour signer, puis vous poussent à baisser après 2 mois.</li>
+                <li>Les visites qui dérangent votre quotidien sans résultat.</li>
+              </ul>
+            </div>
+            <div class="pp-fix">
+              <h4>Ce que je fais</h4>
+              <ul class="pp-list">
+                <li>Évaluation documentée, appuyée sur les ventes réelles du secteur — pas une promesse.</li>
+                <li>Plan marketing complet : photo pro, vidéo, visite 3D, diffusion Centris + réseaux.</li>
+                <li>Visites filtrées et regroupées, comptes rendus après chaque passage.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="ppane__foot">
+            <span class="ppane__metric"><b>11 j</b> délai moyen avant la première offre sérieuse</span>
+            <a href="#eval" class="btn">Évaluer ma propriété <span class="arr">→</span></a>
+          </div>
+        </div>
+
+        <!-- 2 — Acheteur-vendeur -->
+        <div class="ppane" role="tabpanel" hidden>
+          <p class="ppane__quote">« Et si je vends, mais que je <span class="q">ne trouve rien</span> à racheter à temps ? »</p>
+          <div class="pp-cols">
+            <div class="pp-pain">
+              <h4>Ce qui vous bloque</h4>
+              <ul class="pp-list">
+                <li>Le cauchemar du « double déménagement » ou des deux hypothèques en même temps.</li>
+                <li>Synchroniser la date de vente et la date d'achat sans se retrouver coincé.</li>
+                <li>Comprendre la clause conditionnelle à la vente et le financement-relais.</li>
+              </ul>
+            </div>
+            <div class="pp-fix">
+              <h4>Ce que je fais</h4>
+              <ul class="pp-list">
+                <li>Un échéancier unique qui coordonne les deux transactions, semaine par semaine.</li>
+                <li>Conditions de vente et d'achat alignées pour vous protéger des deux côtés.</li>
+                <li>Accès à un réseau de financement-relais si les dates ne tombent pas pile.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="ppane__foot">
+            <span class="ppane__metric"><b>1</b> seul interlocuteur pour vos deux dossiers</span>
+            <a href="#eval" class="btn">Planifier mes deux dates <span class="arr">→</span></a>
+          </div>
+        </div>
+
+        <!-- 3 — Investisseur -->
+        <div class="ppane" role="tabpanel" hidden>
+          <p class="ppane__quote">« Je ne veux pas acheter un immeuble — je veux acheter un <span class="q">rendement</span>. »</p>
+          <div class="pp-cols">
+            <div class="pp-pain">
+              <h4>Ce qui vous bloque</h4>
+              <ul class="pp-list">
+                <li>Des annonces qui affichent un rendement « brut » qui fond une fois les vraies dépenses calculées.</li>
+                <li>Les locataires en place, les baux, le Tribunal administratif du logement.</li>
+                <li>Repérer les bons immeubles avant qu'ils ne sortent publiquement.</li>
+              </ul>
+            </div>
+            <div class="pp-fix">
+              <h4>Ce que je fais</h4>
+              <ul class="pp-list">
+                <li>Calcul de rendement net réel : taxes, entretien, vacance, financement.</li>
+                <li>Lecture des baux et de l'historique des loyers avant l'offre.</li>
+                <li>Veille sur les opportunités off-market de mon réseau de courtiers.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="ppane__foot">
+            <span class="ppane__metric"><b>4,8%</b> rendement net visé sur les dossiers acceptés</span>
+            <a href="#eval" class="btn">Analyser une opportunité <span class="arr">→</span></a>
+          </div>
+        </div>
+
+        <!-- 4 — Nouvel arrivant -->
+        <div class="ppane" role="tabpanel" hidden>
+          <p class="ppane__quote">« Le processus québécois est <span class="q">différent de chez moi</span> — par où je commence ? »</p>
+          <div class="pp-cols">
+            <div class="pp-pain">
+              <h4>Ce qui vous bloque</h4>
+              <ul class="pp-list">
+                <li>Peu ou pas d'historique de crédit canadien : les banques hésitent.</li>
+                <li>Vous ne connaissez pas encore les quartiers ni leur valeur réelle.</li>
+                <li>Le notaire, l'inspection, la promesse d'achat : tout est nouveau.</li>
+              </ul>
+            </div>
+            <div class="pp-fix">
+              <h4>Ce que je fais</h4>
+              <ul class="pp-list">
+                <li>J'explique chaque étape du processus québécois, dans votre langue (FR / EN).</li>
+                <li>Choix des quartiers selon votre mode de vie, votre transport, vos enfants.</li>
+                <li>Partenaires financiers habitués aux dossiers de nouveaux arrivants.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="ppane__foot">
+            <span class="ppane__metric"><b>FR / EN</b> accompagnement entièrement bilingue</span>
+            <a href="#eval" class="btn">Démarrer en confiance <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESSUS ============ -->
+<section class="section" id="processus">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">La démarche</span>
+      <h2>Du premier appel à la signature, sans angle mort.</h2>
+    </div>
+    <div class="steps">
+      <article class="step reveal" data-d="1">
+        <div class="step__no"></div>
+        <h3>On fait le point</h3>
+        <p>Appel découverte de 20 minutes. Votre situation, vos chiffres, votre échéancier. Aucun engagement.</p>
+      </article>
+      <article class="step reveal" data-d="2">
+        <div class="step__no"></div>
+        <h3>On chiffre</h3>
+        <p>Évaluation ou capacité d'achat documentée, basée sur des données réelles du marché — pas une estimation au pif.</p>
+      </article>
+      <article class="step reveal" data-d="3">
+        <div class="step__no"></div>
+        <h3>On exécute</h3>
+        <p>Marketing complet pour vendre, ou repérage ciblé + stratégie d'offre pour acheter. Vous suivez tout en direct.</p>
+      </article>
+      <article class="step reveal" data-d="4">
+        <div class="step__no"></div>
+        <h3>On signe</h3>
+        <p>Négociation, conditions, notaire. Je reste votre point de contact unique jusqu'aux clés en main.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES (bento) ============ -->
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Champs d'expertise</span>
+      <h2>Ce sur quoi je peux réellement vous aider.</h2>
+    </div>
+    <div class="bento">
+      <article class="card card--wide reveal" data-d="1">
+        <div>
+          <div class="card__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></div>
+          <h3>Vente résidentielle clé en main</h3>
+          <p>Maison, condo, jumelé. Évaluation honnête, mise en marché professionnelle (photo, vidéo, 3D) et négociation jusqu'à la meilleure offre — pas la première venue.</p>
+        </div>
+        <div style="margin-top:1.4rem"><a href="#eval" class="btn">Évaluer ma propriété <span class="arr">→</span></a></div>
+      </article>
+      <article class="card reveal" data-d="2">
+        <div class="card__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Accompagnement acheteur</h3>
+        <p>Recherche ciblée, visites, analyse des comparables et stratégie d'offre. Gratuit pour vous comme acheteur.</p>
+      </article>
+      <article class="card reveal" data-d="1">
+        <div class="card__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+        <h3>Immeubles à revenus</h3>
+        <p>Analyse de rendement net, lecture des baux, due diligence et accès aux opportunités off-market.</p>
+      </article>
+      <article class="card reveal" data-d="2">
+        <div class="card__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
+        <h3>Achat-vente coordonné</h3>
+        <p>Vendre et racheter en synchro, financement-relais et conditions alignées pour ne jamais être coincé.</p>
+      </article>
+      <article class="card reveal" data-d="3">
+        <div class="card__ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M2 12h20M12 2c3 3 3 17 0 20M12 2c-3 3-3 17 0 20"/></svg></div>
+        <h3>Nouveaux arrivants</h3>
+        <p>Processus expliqué de A à Z, en français ou en anglais, avec des partenaires financiers adaptés.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><b>143</b><span>Familles accompagnées</span></div>
+      <div class="stat"><b>11 j</b><span>Délai moyen avant offre</span></div>
+      <div class="stat"><b>4,9/5</b><span>Note moyenne (143 avis)</span></div>
+      <div class="stat"><b>98%</b><span>Au prix demandé ou +</span></div>
+    </div>
+    <p class="mono dim" style="text-align:center; margin-top:1rem; opacity:.7">Chiffres illustratifs — démo de présentation</p>
+  </div>
+</section>
+
+<!-- ============ TÉMOIGNAGES ============ -->
+<section class="section" id="avis" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Ce qu'on en dit</span>
+      <h2>Des gens vrais, des dossiers réels.</h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal" data-d="1">
+        <div class="quote__stars">★★★★★</div>
+        <p>« Premier achat, j'étais perdue. Camille a tout expliqué sans me faire sentir bête. On a eu la maison à notre 2ᵉ offre. »</p>
+        <figcaption class="quote__who"><span class="quote__av">SL</span><span><b>Sophie L.</b><span>Premier achat · Brossard</span></span></figcaption>
+      </figure>
+      <figure class="quote reveal" data-d="2">
+        <div class="quote__stars">★★★★★</div>
+        <p>« On a vendu et racheté dans le même mois sans payer deux hypothèques. L'échéancier était béton. »</p>
+        <figcaption class="quote__who"><span class="quote__av">MR</span><span><b>Marc &amp; Rania</b><span>Achat-vente · Longueuil</span></span></figcaption>
+      </figure>
+      <figure class="quote reveal" data-d="3">
+        <div class="quote__stars">★★★★★</div>
+        <p>« Le rendement net qu'elle m'avait calculé sur mon plex s'est avéré exact à un cheveu. Je recommande sans hésiter. »</p>
+        <figcaption class="quote__who"><span class="quote__av">DT</span><span><b>David T.</b><span>Investisseur · Montréal</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÉVALUATION / CTA ============ -->
+<section class="section evalsec" id="eval">
+  <div class="wrap">
+    <div class="evalbox reveal">
+      <div class="evalbox__l">
+        <span class="eyebrow">Sans frais · sans engagement</span>
+        <h2>Recevez votre évaluation en 24&nbsp;heures.</h2>
+        <p class="lead">Dites-moi simplement où vous en êtes. Je reviens vers vous avec un premier chiffrage clair et les prochaines étapes — que vous soyez prêt aujourd'hui ou dans six mois.</p>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg> Un vrai humain vous répond, pas un robot.</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg> Aucune obligation de signer quoi que ce soit.</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg> Vos infos restent confidentielles (Loi 25).</li>
+        </ul>
+      </div>
+      <div class="evalbox__r">
+        <span class="mono">// Formulaire de contact</span>
+        <form onsubmit="return false" style="margin-top:1.1rem">
+          <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field"><label for="f-name">Nom</label><input id="f-name" type="text" placeholder="Votre nom" required></div>
+          <div class="field"><label for="f-mail">Courriel</label><input id="f-mail" type="email" placeholder="vous@courriel.com" required></div>
+          <div class="field"><label for="f-need">Vous êtes…</label>
+            <select id="f-need">
+              <option>Premier achat</option>
+              <option>Je veux vendre</option>
+              <option>Vendre et racheter</option>
+              <option>Investisseur / plex</option>
+              <option>Nouvel arrivant</option>
+            </select>
+          </div>
+          <button type="submit" class="btn">Envoyer ma demande <span class="arr">→</span></button>
+          <p class="fineprint">Démo — ce formulaire n'envoie rien. Sur le site réel, il serait relié à un traitement sécurisé côté serveur.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head reveal" style="text-align:center; margin-inline:auto;">
+      <span class="eyebrow" style="justify-content:center; display:flex">Questions fréquentes</span>
+      <h2>Ce qu'on me demande souvent.</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false"><span>Combien coûte vos services pour un acheteur&nbsp;?</span><span class="ic">+</span></button>
+        <div class="faq__a"><p>Pour un acheteur, l'accompagnement est généralement gratuit&nbsp;: au Québec, la commission est habituellement payée par le vendeur. On en parle clairement dès le premier appel, sans surprise.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false"><span>Comment fixez-vous le prix de vente d'une propriété&nbsp;?</span><span class="ic">+</span></button>
+        <div class="faq__a"><p>À partir des ventes réelles et récentes de propriétés comparables dans votre secteur, de l'état du marché et des caractéristiques précises de votre bien. Je vous remets un document, pas une promesse verbale gonflée pour décrocher le contrat.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false"><span>Je veux vendre ET racheter — comment éviter de payer deux hypothèques&nbsp;?</span><span class="ic">+</span></button>
+        <div class="faq__a"><p>On bâtit un échéancier unique qui coordonne les deux transactions, on aligne les conditions (clause conditionnelle à la vente) et, au besoin, on mobilise un financement-relais. L'objectif&nbsp;: jamais deux paiements en même temps, jamais à la rue.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false"><span>Travaillez-vous avec les nouveaux arrivants&nbsp;?</span><span class="ic">+</span></button>
+        <div class="faq__a"><p>Oui, c'est une grande partie de ma clientèle. J'explique chaque étape du processus québécois en français ou en anglais et je vous oriente vers des partenaires financiers habitués aux dossiers sans long historique de crédit canadien.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false"><span>Quels secteurs couvrez-vous&nbsp;?</span><span class="ic">+</span></button>
+        <div class="faq__a"><p>Montréal et l'ensemble de la Rive-Sud&nbsp;: Longueuil, Brossard, Saint-Lambert, Boucherville, La Prairie et les environs. Pour un secteur limitrophe, écrivez-moi&nbsp;: si je ne suis pas la bonne personne, je vous réfère à un courtier de confiance.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="brand"><span class="brand__mark">A</span><span>ARPENT<small>Courtage immobilier</small></span></div>
+        <p>Camille Daoust, courtière immobilière résidentielle. Un courtage clair, chiffré et humain — à Montréal et sur la Rive-Sud.</p>
+      </div>
+      <div class="foot__col">
+        <h4>Pour qui</h4>
+        <a href="#personas">Premier achat</a>
+        <a href="#personas">Vendre ma maison</a>
+        <a href="#personas">Vendre &amp; racheter</a>
+        <a href="#personas">Investisseur / plex</a>
+        <a href="#personas">Nouvel arrivant</a>
+      </div>
+      <div class="foot__col">
+        <h4>Le cabinet</h4>
+        <a href="#processus">La démarche</a>
+        <a href="#services">Services</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot__col">
+        <h4>Contact</h4>
+        <a href="tel:+15145550142">514 555-0142</a>
+        <a href="mailto:camille@arpent-immobilier.ca">camille@arpent-immobilier.ca</a>
+        <span>1250, rue Saint-Charles O.<br>Longueuil, QC · J4K 0B8</span>
+        <span>Lun–Sam · 8 h – 19 h</span>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© 2026 ARPENT · Courtage immobilier (fictif) · Membre OACIQ</span>
+      <span>Confidentialité · Loi 25 · Mentions légales</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LOI 25 ============ -->
+<div class="cookie" id="cookie" role="dialog" aria-label="Préférences de confidentialité" aria-live="polite">
+  <b>Votre vie privée compte</b>
+  <p>Ce site n'utilise que des témoins essentiels à son bon fonctionnement — aucun suivi publicitaire. Vous gardez le contrôle, conformément à la <a href="#">Loi 25</a>.</p>
+  <div class="cookie__btns">
+    <button type="button" class="btn btn--ghost" id="ckRefuse">Refuser le non-essentiel</button>
+    <button type="button" class="btn" id="ckAccept">Tout accepter</button>
+  </div>
+</div>
+
+<div class="demo-ribbon"><span class="dot"></span> Démo <b>NEXTIWEB&nbsp;Studio</b> · contenu fictif</div>
+
+<script>
+/* fail-open : états JS seulement si JS tourne */
+document.documentElement.classList.remove('no-js');
+document.documentElement.classList.add('js');
+
+/* Header scrolled */
+var header = document.getElementById('header');
+var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 24); };
+onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+/* Menu mobile */
+var burger = document.getElementById('burger');
+var menu = document.getElementById('menu');
+burger.addEventListener('click', function(){
+  var open = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+menu.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+});
+
+/* Reveal on scroll — robuste / fail-open */
+(function(){
+  var items = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  var show = function(el){ el.classList.add('in'); };
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
+    }, {threshold:.08, rootMargin:'0px 0px -30px'});
+    items.forEach(function(el){ io.observe(el); });
+  } else { items.forEach(show); }
+  setTimeout(function(){ items.forEach(show); }, 2200);
+})();
+
+/* Compteurs dossier (jauge + chips) au chargement */
+window.addEventListener('load', function(){
+  document.querySelectorAll('.meter__fill').forEach(function(f){
+    f.style.width = (f.getAttribute('data-fill') || 0) + '%';
+  });
+});
+
+/* Console personas — onglets */
+(function(){
+  var tabs  = Array.prototype.slice.call(document.querySelectorAll('.ptab'));
+  var panes = Array.prototype.slice.call(document.querySelectorAll('.ppane'));
+  if(!tabs.length) return;
+  function activate(i){
+    tabs.forEach(function(t,k){
+      var on = k === i;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on);
+    });
+    panes.forEach(function(p,k){
+      var on = k === i;
+      p.classList.toggle('is-active', on);
+      if(on){ p.removeAttribute('hidden'); } else { p.setAttribute('hidden',''); }
+    });
+  }
+  tabs.forEach(function(t,i){ t.addEventListener('click', function(){ activate(i); }); });
+})();
+
+/* FAQ accordion */
+document.querySelectorAll('.faq__btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = this.closest('.faq__item');
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.faq__item').forEach(function(i){
+      i.classList.remove('open');
+      i.querySelector('.faq__a').style.maxHeight = null;
+      i.querySelector('.faq__btn').setAttribute('aria-expanded','false');
+    });
+    if(!open){
+      item.classList.add('open');
+      var a = item.querySelector('.faq__a');
+      a.style.maxHeight = a.scrollHeight + 'px';
+      this.setAttribute('aria-expanded','true');
+    }
+  });
+});
+
+/* Lumière qui suit la souris */
+(function(){
+  var glow = document.querySelector('.cursor-glow');
+  if(!glow) return;
+  var fine = window.matchMedia('(hover:hover)').matches;
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!fine || reduce) return;
+  var tx=innerWidth/2, ty=innerHeight/2, cx=tx, cy=ty, raf=null;
+  var render = function(){
+    cx += (tx-cx)*.14; cy += (ty-cy)*.14;
+    glow.style.transform = 'translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';
+    if(Math.abs(tx-cx)>.5 || Math.abs(ty-cy)>.5){ raf = requestAnimationFrame(render); } else { raf = null; }
+  };
+  window.addEventListener('pointermove', function(e){
+    tx=e.clientX; ty=e.clientY; glow.classList.add('on');
+    if(!raf) raf = requestAnimationFrame(render);
+  }, {passive:true});
+  document.addEventListener('mouseleave', function(){ glow.classList.remove('on'); });
+})();
+
+/* Loi 25 */
+(function(){
+  var banner = document.getElementById('cookie');
+  if(!banner) return;
+  var stored = null;
+  try{ stored = localStorage.getItem('arpent_consent'); }catch(e){}
+  if(!stored){ setTimeout(function(){ banner.classList.add('show'); }, 900); }
+  var decide = function(v){
+    try{ localStorage.setItem('arpent_consent', v); }catch(e){}
+    banner.classList.remove('show');
+  };
+  document.getElementById('ckAccept').addEventListener('click', function(){ decide('all'); });
+  document.getElementById('ckRefuse').addEventListener('click', function(){ decide('essential'); });
+})();
+</script>
+</body>
+</html>
