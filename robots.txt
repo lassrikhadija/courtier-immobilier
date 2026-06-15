@@ -1,0 +1,6 @@
+# ARPENT — démo NEXTIWEB Studio (contenu fictif)
+# Les pages portent <meta name="robots" content="noindex"> : démo volontairement non indexée.
+User-agent: *
+Allow: /
+
+Sitemap: https://courtier-immobilier.nextiwebstudio.ca/sitemap.xml
