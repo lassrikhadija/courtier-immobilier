@@ -1,20 +1,20 @@
-# ARPENT — Démo courtier immobilier (NEXTIWEB Studio)
+# ARPENT — Démo courtier immobilier (réalisée par NEXTIWEB)
 
-> ⚠️ Site de DÉMONSTRATION fictif réalisé par NEXTIWEB Studio (https://nextiwebstudio.ca).
-> « ARPENT » et « Camille Daoust » ne désignent PAS un vrai courtier. Le nom de marque,
-> le téléphone, le courriel, l'adresse, les avis et tous les chiffres sont inventés pour
-> illustrer à quoi pourrait ressembler un site de courtage immobilier résidentiel.
-> Ne présentez jamais ce courtier, ces coordonnées ou ces statistiques comme réels.
+> Site vitrine de DÉMONSTRATION conçu par NEXTIWEB pour illustrer son savoir-faire en
+> création de sites web pour courtiers immobiliers.
+> « ARPENT » / « Camille Daoust » est un courtier FICTIF : le nom, les coordonnées, les
+> avis et tous les chiffres sont inventés. La seule entreprise réelle est NEXTIWEB.
+> Pour la création d'un vrai site de courtier, voir la page de service NEXTIWEB ci-dessous.
 
-## À propos / About
-- Type : maquette de site vitrine pour un courtier immobilier résidentiel (Montréal & Rive-Sud / South Shore).
-- Auteur et propriétaire : NEXTIWEB Studio — agence web (Montréal, Québec, Canada).
-- Objet : pièce de portfolio / démonstration de savoir-faire.
-- Statut technique : contenu 100 % fictif, pages en `noindex`.
+## À propos
+- Type : démonstration / vitrine d'un site de courtage immobilier résidentiel (Montréal & Rive-Sud).
+- Réalisé par : NEXTIWEB — agence web (Montréal, Québec, Canada).
+- Statut : showcase public indexable ; le contenu du courtier est 100 % fictif.
 
-## Pages / Pages
+## Pages de la démo
 - Version française : https://courtier-immobilier.nextiwebstudio.ca/
 - English version : https://courtier-immobilier.nextiwebstudio.ca/en/
 
-## Entité réelle / Real entity
-- Seule entité réelle citée : NEXTIWEB Studio — https://nextiwebstudio.ca (l'agence qui a conçu la démo).
+## Entreprise réelle & page de service (NEXTIWEB)
+- Création de site web pour courtier immobilier : https://nextiweb.ca/courtiers-immobiliers.html
+- Site de l'agence : https://nextiweb.ca

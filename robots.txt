@@ -1,5 +1,5 @@
-# ARPENT — démo NEXTIWEB Studio (contenu fictif)
-# Les pages portent <meta name="robots" content="noindex"> : démo volontairement non indexée.
+# ARPENT — site vitrine de démonstration réalisé par NEXTIWEB
+# Showcase indexable. Page de service réelle : https://nextiweb.ca/courtiers-immobiliers.html
 User-agent: *
 Allow: /
 
