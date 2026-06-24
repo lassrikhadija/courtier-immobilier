@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://courtier-immobilier.nextiwebstudio.ca/sitemap.xml
+Sitemap: https://courtier.nextiwebstudio.ca/sitemap.xml

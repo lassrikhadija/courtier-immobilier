@@ -12,8 +12,8 @@
 - Statut : showcase public indexable ; le contenu du courtier est 100 % fictif.
 
 ## Pages de la démo
-- Version française : https://courtier-immobilier.nextiwebstudio.ca/
-- English version : https://courtier-immobilier.nextiwebstudio.ca/en/
+- Version française : https://courtier.nextiwebstudio.ca/
+- English version : https://courtier.nextiwebstudio.ca/en/
 
 ## Entreprise réelle & page de service (NEXTIWEB)
 - Création de site web pour courtier immobilier : https://nextiweb.ca/courtiers-immobiliers.html
