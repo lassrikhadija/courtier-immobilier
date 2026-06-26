@@ -12,9 +12,9 @@
 - Statut : showcase public indexable ; le contenu du courtier est 100 % fictif.
 
 ## Pages de la démo
-- Version française : https://courtier.nextiwebstudio.ca/
-- English version : https://courtier.nextiwebstudio.ca/en/
+- [Version française — ARPENT courtier immobilier Montréal](https://courtier.nextiwebstudio.ca/)
+- [English version — ARPENT real estate broker Montreal](https://courtier.nextiwebstudio.ca/en/)
 
 ## Entreprise réelle & page de service (NEXTIWEB)
-- Création de site web pour courtier immobilier : https://nextiweb.ca/courtiers-immobiliers.html
-- Site de l'agence : https://nextiweb.ca
+- [Création de site web pour courtier immobilier — NEXTIWEB](https://nextiweb.ca/courtiers-immobiliers.html)
+- [NEXTIWEB — agence web Montréal](https://nextiweb.ca)
